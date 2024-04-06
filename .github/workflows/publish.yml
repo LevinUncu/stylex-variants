@@ -4,12 +4,7 @@ on:
     types: [published]
 jobs:
   ci:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run CI Workflow
-        uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
+    uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
   publish:
     runs-on: ubuntu-latest
     steps:
