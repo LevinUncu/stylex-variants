@@ -1,0 +1,18 @@
+name: File size impact
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  file_size_impact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js with pnpm
+        uses: ./.github/actions/pnpm
+      - name: Report file size impact
+        run: node ./.github/report_file_size_impact.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
