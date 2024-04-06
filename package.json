@@ -1,7 +1,7 @@
 {
   "name": "stylex-variants",
   "version": "0.0.2",
-  "author": "Levin Uncu (levin.uncu@pip.de)",
+  "author": "Levin Uncu <levin.uncu@pip.de> (https://pip.de)",
   "type": "commonjs",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -22,7 +22,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --minify",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean --minify && pnpm dlx publint",
     "check": "tsc src/index.ts --noEmit --skipLibCheck",
     "format": "prettier --write --cache ./src/**/*.ts",
     "format:check": "prettier --check --cache ./src/**/*.ts",
@@ -30,7 +30,6 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@stylexjs/dev-runtime": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "eslint": "^8.57.0",

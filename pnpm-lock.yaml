@@ -10,9 +10,6 @@ dependencies:
     version: 0.5.1
 
 devDependencies:
-  '@stylexjs/dev-runtime':
-    specifier: ^0.5.1
-    version: 0.5.1
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.5.0
     version: 7.5.0(@typescript-eslint/parser@7.5.0)(eslint@8.57.0)(typescript@5.4.4)
@@ -965,12 +962,6 @@ packages:
       - supports-color
     dev: true
 
-  /@stylexjs/dev-runtime@0.5.1:
-    resolution: {integrity: sha512-iF0VIuqxDGG4eGkIBGyhPV5LONxAPRh6lO06qvbC85KdMzvt3Tffclv8HAbW8bcJFz7HJIOFYUoTGTjqyijKMw==}
-    dependencies:
-      '@stylexjs/shared': 0.5.1
-    dev: true
-
   /@stylexjs/shared@0.5.1:
     resolution: {integrity: sha512-3kuvLfPr1P5lbLjvtEjXmJxyBOygudhH93DA8OtNnb0H3bQjDZJQqaR/Pde67tlsdbqU5pFuaeueKkZhnuurzA==}
     dependencies:
@@ -1812,7 +1803,7 @@ packages:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       minipass: 7.0.4
       path-scurry: 1.10.2
     dev: true
@@ -2137,6 +2128,13 @@ packages:
 
   /minimatch@9.0.3:
     resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
+    engines: {node: '>=16 || 14 >=14.17'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
+  /minimatch@9.0.4:
+    resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
