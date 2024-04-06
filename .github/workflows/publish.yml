@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run CI Workflow
-        uses: ./.github/workflows/ci.yml
+        uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
   publish:
     runs-on: ubuntu-latest
     steps:
