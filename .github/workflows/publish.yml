@@ -3,6 +3,8 @@ name: Publish Package
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
 
 jobs:
   ci:
@@ -16,6 +18,8 @@ jobs:
         uses: ./.github/actions/pnpm
       - name: Build Package
         run: pnpm build
-      - run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: List root
+        run: ls
+      # - run: pnpm publish --no-git-checks
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
