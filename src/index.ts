@@ -16,6 +16,9 @@ type SelectedVariants<T> = {
   [K in keyof T]?: keyof T[K];
 };
 
+export type VariantProps<T extends (args: SelectedVariants<T>) => unknown> =
+  Parameters<T>[0];
+
 export function sv<T extends Variants = never>({
   base,
   variants,
