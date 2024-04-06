@@ -11,6 +11,36 @@ const styles = stylex.create({
   },
 });
 
+const styles1 = stylex.create({
+  base: {
+    padding: '10rem',
+  },
+  sizeLg: {
+    height: '2rem',
+  },
+  sizeMd: {
+    height: '1.5rem',
+  },
+});
+
+test('README.md Example test', () => {
+  const variants = sv({
+    base: styles1.base,
+    variants: {
+      size: {
+        lg: styles1.sizeLg,
+        md: styles1.sizeMd,
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  });
+  const expected = stylex.props(variants({ size: 'lg' }));
+  const received = stylex.props(styles1.base, styles1.sizeLg);
+  expect(expected).toStrictEqual(received);
+});
+
 test('selected variant different than default variant', () => {
   const variant = sv({
     variants: {

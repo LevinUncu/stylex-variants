@@ -1,0 +1,22 @@
+name: Publish Package to npmjs
+on:
+  release:
+    types: [published]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run CI Workflow
+        uses: ./.github/workflows/ci
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js with pnpm
+        uses: ./.github/actions/pnpm
+      - name: Test Package
+        run: pnpm test
+      - run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
