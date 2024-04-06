@@ -6,8 +6,10 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run CI Workflow
-        uses: ./.github/workflows/ci
+        uses: ./.github/workflows/ci.yml
   publish:
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +19,6 @@ jobs:
         uses: ./.github/actions/pnpm
       - name: Test Package
         run: pnpm test
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
