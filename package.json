@@ -22,7 +22,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean --minify && pnpm dlx publint",
+    "build": "tsup && pnpm dlx publint",
     "check": "tsc src/index.ts --noEmit --skipLibCheck",
     "format": "prettier --write --cache ./src/**/*.ts",
     "format:check": "prettier --check --cache ./src/**/*.ts",
@@ -35,6 +35,7 @@
     "@typescript-eslint/parser": "^7.5.0",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
+    "terser": "^5.30.3",
     "tsup": "^8.0.2",
     "typescript": "^5.4.4",
     "vite-plugin-stylex": "^0.8.2",
