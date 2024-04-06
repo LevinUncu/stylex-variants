@@ -1,6 +1,6 @@
 {
   "name": "stylex-variants",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Levin Uncu (levin.uncu@pip.de)",
   "type": "commonjs",
   "main": "./dist/index.js",
