@@ -33,8 +33,8 @@
   "scripts": {
     "build": "tsup && pnpm dlx publint",
     "check": "tsc src/index.ts --noEmit --skipLibCheck",
-    "format": "prettier --write --cache ./src/**/*.ts",
-    "format:check": "prettier --check --cache ./src/**/*.ts",
+    "format": "prettier --write --cache \"./src/**/*.ts\"",
+    "format:check": "prettier --check --cache \"./src/**/*.ts\"",
     "lint": "eslint ./src --cache --cache-file=node_modules/.cache/.eslintcache",
     "test": "vitest run"
   },

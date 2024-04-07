@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "format": "pnpm -r format && prettier --write --cache ./*.{js,json,md}",
-    "format:check": "pnpm -r format:check && prettier --check --cache ./*.{js,json,md}",
+    "format": "pnpm -r format && prettier --write --cache \"./*.{js,json,md}\"",
+    "format:check": "pnpm -r format:check && prettier --check --cache \"./*.{js,json,md}\"",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "check": "pnpm -r check",

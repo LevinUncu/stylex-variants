@@ -9,8 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --cache ./**/*.{ts,tsx,mdx,json}",
-    "format:check": "prettier --check --cache ./**/*.{ts,tsx,mdx,json}"
+    "format": "prettier --write --cache \"./**/*.{ts,tsx,mdx,json}\"",
+    "format:check": "prettier --check --cache \"./**/*.{ts,tsx,mdx,json}\""
   },
   "dependencies": {
     "next": "^13.0.6",
