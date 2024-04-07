@@ -1,7 +1,5 @@
 import { Inter } from 'next/font/google';
 
-import '../styles/global.css';
-
 const sans = Inter({
   display: 'swap',
   preload: true,
