@@ -2,16 +2,23 @@
   "name": "stylex-variants",
   "author": "Levin Uncu <levin.uncu@pip.de> (https://pip.de)",
   "private": true,
+  "type": "module",
   "scripts": {
-    "format": "pnpm -r format",
-    "format:check": "pnpm -r format:check",
+    "format": "pnpm -r format && prettier --write --cache ./*.{js,json,md}",
+    "format:check": "pnpm -r format:check && prettier --check --cache ./*.{js,json,md}",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
-    "check": "pnpm -r check"
+    "check": "pnpm -r check",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/types": "^19.0.3",
     "@jsenv/file-size-impact": "^14.1.5",
+    "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "typescript": "5.3.3"
-  }
+  },
+  "packageManager": "pnpm@8.15.6"
 }
