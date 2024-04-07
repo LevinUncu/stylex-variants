@@ -1,0 +1,16 @@
+name: Compressed File Size
+
+on:
+  pull_request:
+
+jobs:
+  file_size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Report File Size
+        uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: '--filter stylex-variants build'
+          pattern: 'library/dist/*.{js,cjs}'
