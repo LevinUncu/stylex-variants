@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js with pnpm
         uses: ./.github/actions/pnpm
       - name: Build Package
-        run: pnpm build
-      - run: pnpm publish --no-git-checks
+        run: pnpm --filter stylex-variants build
+      - run: pnpm --filter stylex-variants publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

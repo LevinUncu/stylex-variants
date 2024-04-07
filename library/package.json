@@ -1,0 +1,54 @@
+{
+  "name": "stylex-variants",
+  "description": "StyleX Variants",
+  "version": "0.0.2",
+  "license": "MIT",
+  "author": "Levin Uncu <levin.uncu@pip.de> (https://pip.de)",
+  "homepage": "",
+  "keywords": [
+    "stylex",
+    "stlyexjs",
+    "variants",
+    "stylex-variants"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsup && pnpm dlx publint",
+    "check": "tsc src/index.ts --noEmit --skipLibCheck",
+    "format": "prettier --write --cache ./src/**/*.ts",
+    "format:check": "prettier --check --cache ./src/**/*.ts",
+    "lint": "eslint ./src --cache --cache-file=node_modules/.cache/.eslintcache",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@jsenv/file-size-impact": "^14.1.5",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^8.57.0",
+    "terser": "^5.30.3",
+    "tsup": "^8.0.2",
+    "vite-plugin-stylex": "^0.8.2",
+    "vitest": "^1.4.0"
+  },
+  "dependencies": {
+    "@stylexjs/stylex": "^0.5.1"
+  }
+}

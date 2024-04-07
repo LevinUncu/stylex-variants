@@ -71,7 +71,7 @@ describe('without base', () => {
         // @ts-expect-error variant(undefined)
         variant({
           x: styles.color,
-        }),
+        })
       ).toStrictEqual([]);
     });
     test('undefined', () => {
@@ -81,7 +81,7 @@ describe('without base', () => {
         // @ts-expect-error variant(undefined)
         variant({
           x: styles.color,
-        }),
+        })
       ).toStrictEqual([]);
     });
     test('empty object', () => {
@@ -91,7 +91,7 @@ describe('without base', () => {
         // @ts-expect-error variant(undefined)
         variant({
           x: styles.color,
-        }),
+        })
       ).toStrictEqual([]);
     });
   });

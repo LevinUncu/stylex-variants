@@ -1,1 +1,7 @@
+**/routes/**/menu.md
+**/*.log
+**/.DS_Store
+*.
+node_modules
 dist
+pnpm-lock.yaml

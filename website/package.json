@@ -1,0 +1,25 @@
+{
+  "name": "website",
+  "description": "The Documentation of stylex-variants",
+  "license": "MIT",
+  "author": "Levin Uncu <levin.uncu@pip.de> (https://pip.de)",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write --cache ./**/*.{ts,tsx,mdx,json}",
+    "format:check": "prettier --check --cache ./**/*.{ts,tsx,mdx,json}"
+  },
+  "dependencies": {
+    "next": "^13.0.6",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10"
+  }
+}
