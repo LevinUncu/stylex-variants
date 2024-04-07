@@ -1,6 +1,20 @@
 # StyleX Variants
 
-## Example
+## Documentation
+
+## Quick Start
+
+1. Installation
+
+```bash
+npm i stylex-variants
+# or
+yarn add stylex-variants
+# or
+pnpm add stylex-variants
+```
+
+2. Usage
 
 ```tsx
 import stylex from '@stylexjs/stylex';
@@ -32,6 +46,4 @@ const variants = sv({
 });
 
 const styleProps = stylex.props(variants({ size: 'lg' }));
-// will result in
-const styleProps = stylex.props(styles.base, styles.sizeLg);
 ```
