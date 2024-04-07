@@ -1,4 +1,4 @@
-name: File size impact
+name: File Size
 
 on:
   pull_request:

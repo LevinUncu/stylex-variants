@@ -6,11 +6,11 @@ type DefaultVariants<T> = {
   [key in keyof T]: keyof T[key];
 };
 
-type Arguments<T> = {
+interface Arguments<T> {
   base?: StyleXStyles;
   variants?: T;
   defaultVariants?: DefaultVariants<T>;
-};
+}
 
 type SelectedVariants<T> = {
   [K in keyof T]?: keyof T[K];
