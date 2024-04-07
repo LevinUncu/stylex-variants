@@ -1,0 +1,41 @@
+# Typescript
+
+**StyleXVariants** provides typing out of the box.
+But you can use `VariantProps` to get the variants from a Component.
+
+```ts
+import { sv, type VariantProps } from 'stylex-variants';
+
+const buttonVariants = sv({
+  base: styles.base,
+  variants: {
+    color: {
+      primary: styles.primary,
+      error: styles.error,
+      succes: styles.succes,
+    },
+    size: {
+      sm: styles.sm,
+      md: styles.md,
+      lg: styles.lg,
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    color: 'primary',
+  },
+});
+
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+/*
+type ButtonVariants = {
+  size?: 'sm' | 'md' | 'lg',
+  color?: 'primary' | 'error' | 'succes',
+};
+*/
+
+function Button({ size, color }: ButtonVariants) {
+  return <button {...stylex.props(variants({ size, color }))}>Click me</button>;
+}
+```

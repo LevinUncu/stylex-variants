@@ -1,0 +1,88 @@
+import { Callout } from 'nextra-theme-docs';
+
+# Variants
+
+Variants allows you to create multiple versions of the same component.
+
+## Adding variants
+
+```js /color/
+import { sv } from 'stylex-variants';
+
+const buttonVariants = sv({
+  base: styles.base,
+  variants: {
+    color: {
+      primary: styles.primary,
+      error: styles.error,
+      succes: styles.succes,
+    },
+  },
+});
+
+buttonVariants({ color: 'error' });
+```
+
+## Multiple variants
+
+```js /color/ /size/
+import { sv } from 'stylex-variants';
+
+const buttonVariants = sv({
+  base: styles.base,
+  variants: {
+    color: {
+      primary: styles.primary,
+      error: styles.error,
+      succes: styles.succes,
+    },
+    size: {
+      sm: styles.sm,
+      md: styles.md,
+      lg: styles.lg,
+    },
+  },
+});
+
+buttonVariants({ color: 'error', size: 'lg' });
+```
+
+## Boolean variants
+
+<Callout type="info">Boolean variants are not yet supported.</Callout>
+
+## Default variants
+
+```js
+import { sv } from 'stylex-variants';
+
+const buttonVariants = sv({
+  base: styles.base,
+  variants: {
+    color: {
+      primary: styles.primary,
+      error: styles.error,
+      succes: styles.succes,
+    },
+    size: {
+      sm: styles.sm,
+      md: styles.md,
+      lg: styles.lg,
+    },
+  },
+  defaultVariants: {
+    color: 'primary',
+    size: 'md',
+  },
+});
+
+buttonVariants();
+```
+
+## Required variants
+
+<Callout type="info">Required variants are not yet supported.</Callout>
+
+## Compound variants
+
+<Callout type="info">Compound variants are not yet supported.</Callout>

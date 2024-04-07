@@ -1,15 +1,14 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
+  "docs": {
     "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+    "title": "Documentation"
+  },
+  "imprint": {
+    "type": "page",
+    "title": "Imprint"
+  },
+  "privacy": {
+    "type": "page",
+    "title": "Privacy"
   }
 }
