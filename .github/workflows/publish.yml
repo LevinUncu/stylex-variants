@@ -1,21 +1,30 @@
 name: Publish Package
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
-jobs:
-  ci:
-    uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node.js with pnpm
-        uses: ./.github/actions/pnpm
-      - name: Build Package
-        run: pnpm --filter stylex-variants build
-      - run: pnpm --filter stylex-variants publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      
+# name: Publish Package
+
+# on:
+#   release:
+#     types: [published]
+
+# jobs:
+#   ci:
+#     uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
+#   publish:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: Setup Node.js with pnpm
+#         uses: ./.github/actions/pnpm
+#       - name: Build Package
+#         run: pnpm --filter stylex-variants build
+#       - run: pnpm --filter stylex-variants publish --no-git-checks
+#         env:
+#           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -14,7 +14,7 @@ const config: UserConfig = {
     'type-enum': [
       RuleConfigSeverity.Error,
       'always',
-      ['feat', 'fix', 'refactor', 'test', 'build', 'ci', 'bump'],
+      ['feat', 'fix', 'refactor', 'test', 'build', 'ci'],
     ],
   },
 };
