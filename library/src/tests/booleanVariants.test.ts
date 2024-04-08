@@ -55,6 +55,18 @@ describe('boolean variant', () => {
       },
     });
     expect(variant()).toStrictEqual([styles.color]);
+    variant = sv({
+      variants: {
+        disabled: {
+          true: styles.color,
+          false: styles.fontSize,
+        },
+      },
+      defaultVariants: {
+        disabled: false,
+      },
+    });
+    expect(variant()).toStrictEqual([styles.fontSize]);
   });
   describe('no default, selected', () => {
     test('select false', () => {
