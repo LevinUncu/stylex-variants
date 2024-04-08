@@ -2,14 +2,12 @@
  * @type {import('prettier').Config}
  */
 const config = {
-  printWidth: 80,
-  tabWidth: 2,
-  useTabs: false,
   semi: true,
   singleQuote: true,
+  tabWidth: 2,
   trailingComma: 'es5',
+  printWidth: 80,
   bracketSpacing: true,
-  bracketSameLine: false,
   arrowParens: 'always',
 };
 
