@@ -65,7 +65,7 @@ test('selected variant different than default variant', () => {
 describe('without base', () => {
   describe('without variants', () => {
     test('empty', () => {
-      const variant = sv();
+      const variant = sv({});
       expect(variant()).toStrictEqual([]);
       expect(
         // @ts-expect-error variant(undefined)
@@ -75,14 +75,11 @@ describe('without base', () => {
       ).toStrictEqual([]);
     });
     test('undefined', () => {
+      // @ts-expect-error variant(undefined)
       const variant = sv(undefined);
       expect(variant()).toStrictEqual([]);
-      expect(
-        // @ts-expect-error variant(undefined)
-        variant({
-          x: styles.color,
-        })
-      ).toStrictEqual([]);
+      // @ts-expect-error variant(undefined)
+      expect(variant({})).toStrictEqual([]);
     });
     test('empty object', () => {
       const variant = sv({});

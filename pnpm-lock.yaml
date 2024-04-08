@@ -54,6 +54,9 @@ importers:
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(typescript@5.3.3)
+      tsx:
+        specifier: ^4.7.2
+        version: 4.7.2
       vite-plugin-stylex:
         specifier: ^0.8.2
         version: 0.8.2(@stylexjs/stylex@0.5.1)(vite@5.2.8)
@@ -7643,6 +7646,16 @@ packages:
       - supports-color
       - ts-node
     dev: true
+
+  /tsx@4.7.2:
+    resolution: {integrity: sha512-BCNd4kz6fz12fyrgCTEdZHGJ9fWTGeUzXmQysh0RVocDY3h4frk05ZNCXSy4kIenF7y/QnrdiVpTsyNRn6vlAw==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    dependencies:
+      esbuild: 0.19.12
+      get-tsconfig: 4.7.3
+    optionalDependencies:
+      fsevents: 2.3.3
 
   /tty-table@4.2.3:
     resolution: {integrity: sha512-Fs15mu0vGzCrj8fmJNP7Ynxt5J7praPXqFN0leZeZBXJwkMxv9cb2D454k1ltrtUSJbZ4yH4e0CynsHLxmUfFA==}
