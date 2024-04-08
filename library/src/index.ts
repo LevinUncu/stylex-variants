@@ -5,12 +5,13 @@ export type VariantProps<
   T extends (selectedVariants?: AvailableVariants<T>) => StyleXStyles[],
 > = Parameters<T>[0];
 
-export function sv<T>({ base, variants, defaultVariants }: Options<T>) {
+export function sv<T>(options: Options<T>) {
   return function (selectedVariants?: AvailableVariants<T>): StyleXStyles[] {
-    if (!variants) {
+    const base = options?.base;
+    if (!options?.variants) {
       return base ? [base] : [];
     }
-
+    const { variants, defaultVariants } = options;
     const variantClassnames: StyleXStyles[] = [];
 
     for (const variant in variants) {
