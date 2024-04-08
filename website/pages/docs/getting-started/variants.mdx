@@ -47,10 +47,6 @@ const buttonVariants = sv({
 buttonVariants({ color: 'error', size: 'lg' });
 ```
 
-## Boolean variants
-
-<Callout type="info">Boolean variants are not yet supported.</Callout>
-
 ## Default variants
 
 ```js
@@ -78,6 +74,28 @@ const buttonVariants = sv({
 
 buttonVariants();
 ```
+
+## Boolean variants
+
+```js /disabled/
+import { sv } from 'stylex-variants';
+
+const buttonVariants = sv({
+  base: styles.base,
+  variants: {
+    disabled: {
+      true: styles.inactive,
+      false: styles.active,
+    },
+  },
+});
+
+buttonVariants({ disabled: true });
+```
+
+<Callout type="info">
+  The default variant for a boolean variant is false by default.
+</Callout>
 
 ## Required variants
 
