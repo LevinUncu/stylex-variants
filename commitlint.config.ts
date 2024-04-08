@@ -9,7 +9,7 @@ const config: UserConfig = {
     'scope-enum': [
       RuleConfigSeverity.Warning,
       'always',
-      ['library', 'website'],
+      ['library', 'website', 'release'],
     ],
     'type-enum': [
       RuleConfigSeverity.Error,
