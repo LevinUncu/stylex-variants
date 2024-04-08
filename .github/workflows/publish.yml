@@ -4,27 +4,29 @@ on:
   push:
     branches:
       - main
-
-
-      
-# name: Publish Package
-
-# on:
-#   release:
-#     types: [published]
-
-# jobs:
-#   ci:
-#     uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
-#   publish:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#       - name: Setup Node.js with pnpm
-#         uses: ./.github/actions/pnpm
-#       - name: Build Package
-#         run: pnpm --filter stylex-variants build
-#       - run: pnpm --filter stylex-variants publish --no-git-checks
-#         env:
-#           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+jobs:
+  ci:
+    uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
+  publish:
+    if: ${{ github.repository_owner == 'levinuncu' }}
+    name: Create a PR for release workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js with pnpm
+        uses: ./.github/actions/pnpm
+      - name: Build Package
+        run: pnpm --filter stylex-variants build
+      - name: Create Version PR or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1.4.1
+        with:
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+          version: node .github/changeset-version.js
+          publish: npx changeset publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_ENV: 'production'
