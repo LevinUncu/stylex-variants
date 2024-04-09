@@ -36,7 +36,7 @@
     "format": "prettier --write --cache \"./src/**/*.ts\"",
     "format:check": "prettier --check --cache \"./src/**/*.ts\"",
     "lint": "eslint ./src --cache --cache-file=node_modules/.cache/.eslintcache",
-    "test": "vitest run"
+    "test": "vitest run --typecheck"
   },
   "devDependencies": {
     "@jsenv/file-size-impact": "^14.1.5",
