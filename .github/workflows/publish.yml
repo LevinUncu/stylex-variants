@@ -4,32 +4,37 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-permissions: {}
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 jobs:
   ci:
     uses: LevinUncu/stylex-variants/.github/workflows/ci.yml@main
   publish:
     if: ${{ github.repository_owner == 'levinuncu' }}
-    permissions:
-      contents: write
-      pull-requests: write
     name: Create a PR for release workflow
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
         with:
-          version: 8
-          run_install: false
+          token: ${{ env.GITHUB_TOKEN }}
+          fetch-depth: 0
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           cache: 'pnpm'
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -54,8 +59,8 @@ jobs:
         with:
           commit: 'chore(release): version packages'
           title: 'chore(release): version packages'
-          version: node .github/changeset-version.js
-          publish: npx changeset publish
+          version: pnpm version:packages
+          publish: pnpm publish:packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

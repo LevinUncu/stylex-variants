@@ -9,7 +9,10 @@
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
     "check": "pnpm -r check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "changeset": "changeset",
+    "publish:packages": "changeset publish",
+    "version:packages": "changeset version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
