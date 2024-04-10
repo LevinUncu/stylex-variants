@@ -49,7 +49,7 @@ buttonVariants({ color: 'error', size: 'lg' });
 
 ## Default variants
 
-```js
+```js /color/ /size/
 import { sv } from 'stylex-variants';
 
 const buttonVariants = sv({
@@ -77,8 +77,8 @@ buttonVariants();
 
 ## Boolean variants
 
-```js /disabled/
-import { sv } from 'stylex-variants';
+```js /color/ /size/
+import { sv, type VariantProps } from 'stylex-variants';
 
 const buttonVariants = sv({
   base: styles.base,
@@ -90,7 +90,7 @@ const buttonVariants = sv({
   },
 });
 
-buttonVariants({ disabled: true });
+buttonVariants();
 ```
 
 <Callout type="info">
@@ -99,7 +99,35 @@ buttonVariants({ disabled: true });
 
 ## Required variants
 
-<Callout type="info">Required variants are not yet supported.</Callout>
+```js /required: true,/
+import { sv } from 'stylex-variants';
+
+const buttonVariants = sv({
+  base: styles.base,
+  variants: {
+    color: {
+      primary: styles.primary,
+      error: styles.error,
+      succes: styles.succes,
+    },
+    size: {
+      sm: styles.sm,
+      md: styles.md,
+      lg: styles.lg,
+      required: true,
+    },
+  },
+});
+
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+/*
+type ButtonVariants = {
+  size: 'sm' | 'md' | 'lg',
+  color?: 'primary' | 'error' | 'succes' | undefined,
+};
+*/
+```
 
 ## Compound variants
 
