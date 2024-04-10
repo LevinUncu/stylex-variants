@@ -4,8 +4,12 @@ import { Options, Variants, SelectedVariants } from './types';
 export type VariantProps<T extends (selectedVariants: any) => StyleXStyles[]> =
   Parameters<T>[0];
 
-export function sv<T extends Variants>(options: Options<T>) {
+export function sv<T extends Variants>(options: Options<T> = {}) {
   return function (selectedVariants: SelectedVariants<T>): StyleXStyles[] {
+    if (!options) {
+      return [];
+    }
+
     const { base, variants, defaultVariants } = options;
 
     if (!variants) {
@@ -32,7 +36,7 @@ export function sv<T extends Variants>(options: Options<T>) {
         variantClassnames.push(
           variants[variant][defaultVariant] as StyleXStyles
         );
-      } else if (variants[variant].false) {
+      } else if (variants[variant].false && !selectedVariant) {
         variantClassnames.push(variants[variant].false as StyleXStyles);
       }
     }
