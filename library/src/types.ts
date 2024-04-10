@@ -1,6 +1,6 @@
 import { StyleXStyles } from '@stylexjs/stylex';
 
-type StyleVariant = StyleXStyles | boolean | undefined;
+type StyleVariant = StyleXStyles | true | undefined;
 
 interface Variant {
   [key: string]: StyleVariant;
