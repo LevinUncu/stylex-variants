@@ -42,7 +42,7 @@ describe('boolean variants', () => {
 
   describe.each<[Props, StyleXStyles[], StyleXStyles[], StyleXStyles[]]>([
     [null as unknown as Props, [], [styles.color], [styles.color]],
-    [undefined, [], [styles.color], [styles.color]],
+    [undefined as unknown as Props, [], [styles.color], [styles.color]],
     [{}, [], [styles.color], [styles.color]],
     [
       { disabled: null } as unknown as Props,

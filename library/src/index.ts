@@ -1,4 +1,4 @@
-import { type StyleXStyles } from '@stylexjs/stylex';
+import stylex, { type StyleXStyles } from '@stylexjs/stylex';
 import { Options, Variants, SelectedVariants } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

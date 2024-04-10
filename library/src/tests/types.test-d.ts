@@ -23,13 +23,10 @@ describe('test types', () => {
         },
       },
     });
-    expectTypeOf(variant).parameter(0).toMatchTypeOf<
-      | {
-          size?: 'md' | undefined;
-          color?: 'primary' | undefined;
-        }
-      | undefined
-    >();
+    expectTypeOf(variant).parameter(0).toMatchTypeOf<{
+      size?: 'md' | undefined;
+      color?: 'primary' | undefined;
+    }>();
   });
   test('required variant', () => {
     const variant = sv({

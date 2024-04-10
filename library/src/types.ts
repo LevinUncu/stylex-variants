@@ -51,4 +51,4 @@ type OptionalVariantKeys<T> = {
 export type SelectedVariants<T extends Variants> =
   HasRequired<T> extends true
     ? RequiredVariantKeys<T> & OptionalVariantKeys<T>
-    : OptionalVariantKeys<T> | undefined;
+    : OptionalVariantKeys<T>;
