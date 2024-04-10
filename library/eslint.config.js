@@ -1,9 +1,3 @@
-// module.exports = {
-
-//   ignorePatterns: ['.eslintrc.cjs'],
-//   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-// };
-
 // @ts-check
 
 import eslint from '@eslint/js';
