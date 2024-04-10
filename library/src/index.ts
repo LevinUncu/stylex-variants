@@ -1,6 +1,7 @@
 import { type StyleXStyles } from '@stylexjs/stylex';
 import { Options, Variants, SelectedVariants } from './types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type VariantProps<T extends (selectedVariants: any) => StyleXStyles[]> =
   Parameters<T>[0];
 
