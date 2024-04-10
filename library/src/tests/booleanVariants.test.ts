@@ -1,6 +1,6 @@
 import { expect, test, describe } from 'vitest';
-import stylex from '@stylexjs/stylex';
-import { sv } from '../index';
+import stylex, { StyleXStyles } from '@stylexjs/stylex';
+import { VariantProps, sv } from '../index';
 
 const styles = stylex.create({
   color: {
@@ -11,101 +11,60 @@ const styles = stylex.create({
   },
 });
 
-describe('boolean variant', () => {
-  test('no default, no selected', () => {
-    let variant = sv({
-      variants: {
-        disabled: {
-          true: styles.color,
-        },
+describe('boolean variants', () => {
+  const variantTrue = sv({
+    variants: {
+      disabled: {
+        true: styles.color,
       },
-    });
-    expect(variant()).toStrictEqual([]);
-    variant = sv({
-      variants: {
-        disabled: {
-          true: styles.fontSize,
-          false: styles.color,
-        },
-      },
-    });
-    expect(variant()).toStrictEqual([styles.color]);
+    },
   });
-  test('default, no selected', () => {
-    let variant = sv({
-      variants: {
-        disabled: {
-          true: styles.color,
-        },
+  const variantFalse = sv({
+    variants: {
+      disabled: {
+        false: styles.color,
       },
-      defaultVariants: {
-        disabled: true,
-      },
-    });
-    expect(variant()).toStrictEqual([styles.color]);
-    variant = sv({
-      variants: {
-        disabled: {
-          true: styles.color,
-          false: styles.fontSize,
-        },
-      },
-      defaultVariants: {
-        disabled: true,
-      },
-    });
-    expect(variant()).toStrictEqual([styles.color]);
-    variant = sv({
-      variants: {
-        disabled: {
-          true: styles.color,
-          false: styles.fontSize,
-        },
-      },
-      defaultVariants: {
-        disabled: false,
-      },
-    });
-    expect(variant()).toStrictEqual([styles.fontSize]);
+    },
   });
-  describe('no default, selected', () => {
-    test('select false', () => {
-      let variant = sv({
-        variants: {
-          disabled: {
-            true: styles.color,
-          },
-        },
-      });
-      expect(variant({ disabled: false })).toStrictEqual([]);
-      variant = sv({
-        variants: {
-          disabled: {
-            true: styles.color,
-            false: styles.fontSize,
-          },
-        },
-      });
-      expect(variant({ disabled: false })).toStrictEqual([styles.fontSize]);
-    });
-    test('select true', () => {
-      let variant = sv({
-        variants: {
-          disabled: {
-            true: styles.color,
-          },
-        },
-      });
-      expect(variant({ disabled: true })).toStrictEqual([styles.color]);
-      variant = sv({
-        variants: {
-          disabled: {
-            true: styles.color,
-            false: styles.fontSize,
-          },
-        },
-      });
-      expect(variant({ disabled: true })).toStrictEqual([styles.color]);
-    });
+  const variantFalseTrue = sv({
+    variants: {
+      disabled: {
+        false: styles.color,
+        true: styles.fontSize,
+      },
+    },
   });
+
+  type Props =
+    | VariantProps<typeof variantFalse>
+    | VariantProps<typeof variantTrue>
+    | VariantProps<typeof variantFalseTrue>;
+
+  describe.each<[Props, StyleXStyles[], StyleXStyles[], StyleXStyles[]]>([
+    [null as unknown as Props, [], [styles.color], [styles.color]],
+    [undefined, [], [styles.color], [styles.color]],
+    [{}, [], [styles.color], [styles.color]],
+    [
+      { disabled: null } as unknown as Props,
+      [],
+      [styles.color],
+      [styles.color],
+    ],
+    [{ disabled: undefined }, [], [styles.color], [styles.color]],
+    [{ disabled: false }, [], [styles.color], [styles.color]],
+    [{ disabled: true }, [styles.color], [], [styles.fontSize]],
+  ])(
+    'variant(%o)',
+    (options, expectedTrue, expectedFalse, expectedFalseTrue) => {
+      test('with true key', () => {
+        expect(variantTrue(options)).toStrictEqual(expectedTrue);
+      });
+      test('with false key', () => {
+        expect(variantFalse(options)).toStrictEqual(expectedFalse);
+      });
+      test('with false and true key', () => {
+        expect(variantFalseTrue(options)).toStrictEqual(expectedFalseTrue);
+      });
+    }
+  );
 });

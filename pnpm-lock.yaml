@@ -61,7 +61,7 @@ importers:
         specifier: ^0.8.2
         version: 0.8.2(@stylexjs/stylex@0.5.1)(vite@5.2.8)
       vitest:
-        specifier: ^1.4.0
+        specifier: 1.4.0
         version: 1.4.0(@types/node@18.11.10)(terser@5.30.3)
 
   website:
@@ -7656,6 +7656,7 @@ packages:
       get-tsconfig: 4.7.3
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
 
   /tty-table@4.2.3:
     resolution: {integrity: sha512-Fs15mu0vGzCrj8fmJNP7Ynxt5J7praPXqFN0leZeZBXJwkMxv9cb2D454k1ltrtUSJbZ4yH4e0CynsHLxmUfFA==}
