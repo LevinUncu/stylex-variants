@@ -28,7 +28,7 @@ describe('default variants', () => {
 
   test.each<[Props, StyleXStyles[]]>([
     [null as unknown as Props, [styles.color]],
-    [undefined, [styles.color]],
+    [undefined as unknown as Props, [styles.color]],
     [{}, [styles.color]],
     [{ size: null } as unknown as Props, [styles.color]],
     [{ size: undefined }, [styles.color]],
