@@ -64,8 +64,8 @@ importers:
         specifier: ^7.6.0
         version: 7.6.0(eslint@9.0.0)(typescript@5.4.4)
       vite-plugin-stylex:
-        specifier: ^0.8.2
-        version: 0.8.2(@stylexjs/stylex@0.5.1)(vite@5.2.8)
+        specifier: ^0.8.3
+        version: 0.8.3(@stylexjs/stylex@0.5.1)(vite@5.2.8)
       vitest:
         specifier: 1.4.0
         version: 1.4.0(@types/node@20.12.7)(terser@5.30.3)
@@ -8219,8 +8219,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-stylex@0.8.2(@stylexjs/stylex@0.5.1)(vite@5.2.8):
-    resolution: {integrity: sha512-EoNblF8b4Yawzo1h1alS8wxg36KUndVBSFbmVVN4M3XhM4Kbrm3+q1jNuB185F8GqlsiPJNVVsCLZgFA7g3zNw==}
+  /vite-plugin-stylex@0.8.3(@stylexjs/stylex@0.5.1)(vite@5.2.8):
+    resolution: {integrity: sha512-FDOWHA/XC9CGTWWiO3ST9B6FBC8Y2c0z0d+B/Xfs5xCLwc21WnuKugnxS8pjguYwyexzt870rf3cVf+K2gojlA==}
     peerDependencies:
       '@stylexjs/stylex': ^0.5.1
       react-strict-dom: '*'
