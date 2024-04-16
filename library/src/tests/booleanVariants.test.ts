@@ -57,9 +57,11 @@ describe('boolean variants', () => {
     'variant(%o)',
     (options, expectedTrue, expectedFalse, expectedFalseTrue) => {
       test('with true key', () => {
+        // @ts-expect-error
         expect(variantTrue(options)).toStrictEqual(expectedTrue);
       });
       test('with false key', () => {
+        // @ts-expect-error
         expect(variantFalse(options)).toStrictEqual(expectedFalse);
       });
       test('with false and true key', () => {
