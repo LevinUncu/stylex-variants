@@ -11,7 +11,7 @@
     "check": "pnpm -r check",
     "prepare": "husky",
     "changeset": "changeset",
-    "publish:packages": "pnpm publish --filter stylex-variants --access public && changeset tag",
+    "publish:packages": "pnpm publish --filter stylex-variants --access public --no-git-checks && changeset tag",
     "version:packages": "changeset version"
   },
   "devDependencies": {
