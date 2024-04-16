@@ -18,6 +18,12 @@ export default [
       typescript: tseslintPlugin,
     },
     rules: {
+      '@typescript-eslint/ban-ts-comment': [
+        'error',
+        {
+          minimumDescriptionLength: 0,
+        },
+      ],
       '@typescript-eslint/consistent-type-definitions': 'error',
     },
   },

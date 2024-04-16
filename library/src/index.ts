@@ -23,22 +23,22 @@ export function sv<T extends Variants>(options: Options<T> = {}) {
       const selectedVariant = selectedVariants?.[variant] as string | undefined;
       const defaultVariant = defaultVariants?.[variant] as string | undefined;
 
-      if (variants[variant].required && !selectedVariant) {
+      if (variants[variant]!.required && !selectedVariant) {
         console.error(
           `variant ${String(variant)} is required but not selected.`
         );
       }
 
-      if (selectedVariant && variants[variant][selectedVariant]) {
+      if (selectedVariant && variants[variant]![selectedVariant]) {
         variantClassnames.push(
-          variants[variant][selectedVariant] as StyleXStyles
+          variants[variant]![selectedVariant] as StyleXStyles
         );
-      } else if (defaultVariant && variants[variant][defaultVariant]) {
+      } else if (defaultVariant && variants[variant]![defaultVariant]) {
         variantClassnames.push(
-          variants[variant][defaultVariant] as StyleXStyles
+          variants[variant]![defaultVariant] as StyleXStyles
         );
-      } else if (variants[variant].false && !selectedVariant) {
-        variantClassnames.push(variants[variant].false as StyleXStyles);
+      } else if (variants[variant]!.false && !selectedVariant) {
+        variantClassnames.push(variants[variant]!.false as StyleXStyles);
       }
     }
 

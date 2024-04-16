@@ -4,7 +4,7 @@ import { sv } from '../index';
 
 describe('sv', () => {
   test('sv()()', () => {
-    // @ts-expect-error sv()()
+    // @ts-expect-error
     expect(sv()()).toStrictEqual([]);
   });
   test.each<[unknown, StyleXStyles[]]>([
@@ -12,7 +12,7 @@ describe('sv', () => {
     [undefined, []],
     [{}, []],
   ])('sv(%o)()', (options, expected) => {
-    // @ts-expect-error sv(options)()
+    // @ts-expect-error
     expect(sv(options)()).toStrictEqual(expected);
   });
 });

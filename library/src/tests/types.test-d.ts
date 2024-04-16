@@ -1,5 +1,5 @@
 import { test, describe, expectTypeOf } from 'vitest';
-import { sv } from '../index';
+import { VariantProps, sv } from '../index';
 import stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({
@@ -22,7 +22,11 @@ describe('test types', () => {
           primary: styles.fontSize,
         },
       },
+      defaultVariants: {
+        color: 'primary',
+      },
     });
+
     expectTypeOf(variant).parameter(0).toMatchTypeOf<{
       size?: 'md' | undefined;
       color?: 'primary' | undefined;
@@ -43,6 +47,59 @@ describe('test types', () => {
     expectTypeOf(variant).parameter(0).toMatchTypeOf<{
       size: 'md';
       color?: 'primary' | undefined;
+    }>();
+  });
+  test('boolean variant', () => {
+    const variant = sv({
+      variants: {
+        disabled: {
+          true: styles.color,
+        },
+        hover: {
+          true: styles.color,
+          false: styles.color,
+        },
+        active: {
+          true: styles.color,
+          required: true,
+        },
+      },
+    });
+    expectTypeOf(variant).parameter(0).toMatchTypeOf<{
+      disabled?: true | undefined;
+      hover?: boolean | undefined;
+      active: true;
+    }>();
+  });
+  test('variant props', () => {
+    const variant = sv({
+      variants: {
+        size: {
+          sm: styles.color,
+          md: styles.color,
+          lg: styles.color,
+        },
+        disabled: {
+          true: styles.color,
+        },
+        hover: {
+          true: styles.color,
+          false: styles.color,
+        },
+        active: {
+          true: styles.color,
+          required: true,
+        },
+      },
+    });
+    // @ts-expect-error
+    const variantProps: VariantProps<typeof variant> = {};
+
+    expectTypeOf(variantProps).toMatchTypeOf<{
+      size?: 'sm' | 'md' | 'lg' | undefined;
+      disabled?: true | undefined;
+      hover?: boolean | undefined;
+      active: true;
     }>();
   });
 });

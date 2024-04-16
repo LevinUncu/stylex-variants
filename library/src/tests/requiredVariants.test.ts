@@ -34,7 +34,7 @@ describe('required variants', () => {
           },
         },
       });
-      // @ts-expect-error variant()
+      // @ts-expect-error
       expect(variant()).toStrictEqual([]);
       expect(consoleMock).toHaveBeenCalledTimes(1);
       expect(consoleMock.mock.calls).toEqual([
@@ -54,7 +54,7 @@ describe('required variants', () => {
           },
         },
       });
-      // @ts-expect-error variant()
+      // @ts-expect-error
       expect(variant()).toStrictEqual([]);
       expect(consoleMock).toHaveBeenCalledTimes(2);
       expect(consoleMock.mock.calls).toEqual([
