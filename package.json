@@ -11,7 +11,7 @@
     "check": "pnpm -r check",
     "prepare": "husky",
     "changeset": "changeset",
-    "publish:packages": "changeset publish",
+    "publish:packages": "pnpm publish -r --access public && changeset tag",
     "version:packages": "changeset version"
   },
   "devDependencies": {
