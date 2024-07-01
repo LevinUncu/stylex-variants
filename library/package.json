@@ -46,7 +46,7 @@
     "terser": "^5.30.3",
     "tsup": "^8.0.2",
     "tsx": "^4.7.2",
-    "typescript-eslint": "^7.6.0",
+    "typescript-eslint": "^7.14.1",
     "vite-plugin-stylex": "^0.8.3",
     "vitest": "1.5.0"
   },
